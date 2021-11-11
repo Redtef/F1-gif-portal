@@ -78,6 +78,15 @@ const App = () => {
     }
   };
 
+  const goToSolScan = (address) => {
+    console.log("hmmm");
+    console.log(address);
+    let url = "https://solscan.io/account/";
+    let urlClusterType = "?cluster=devnet";
+
+    window.open(url + address + urlClusterType, "_blank");
+  };
+
   const onInputChange = (event) => {
     const { value } = event.target;
     setInputValue(value);
@@ -194,6 +203,12 @@ const App = () => {
             {gifList.map((item, index) => (
               <div className="gif-item" key={index}>
                 <img src={item.gifLink} alt="" />
+                <button
+                  className="cta-button gif-address"
+                  onClick={() => goToSolScan(item.userAddress.toString())}
+                >
+                  Submitted by: {item.userAddress.toString()}
+                </button>
               </div>
             ))}
           </div>
