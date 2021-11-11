@@ -229,6 +229,7 @@ const App = () => {
       console.log("fetching the gifs");
       getGifList();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [walletAddress]);
 
   return (
