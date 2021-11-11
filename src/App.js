@@ -36,6 +36,7 @@ const App = () => {
   const [walletAddress, setWalletAddress] = useState(null);
   const [inputValue, setInputValue] = useState("");
   const [gifList, setGifList] = useState([]);
+  const [totalGifs, setTotalGifs] = useState(0);
 
   const checkIfWalletExists = async () => {
     try {
@@ -79,11 +80,9 @@ const App = () => {
   };
 
   const goToSolScan = (address) => {
-    console.log("hmmm");
     console.log(address);
     let url = "https://solscan.io/account/";
     let urlClusterType = "?cluster=devnet";
-
     window.open(url + address + urlClusterType, "_blank");
   };
 
@@ -198,6 +197,12 @@ const App = () => {
               Submit
             </button>
           </form>
+          <div className="total-gifs-container">
+            <div className="total-gifs-item">
+              Total number of Gifs :
+              <span className="total-gifs-number">{totalGifs}</span>
+            </div>
+          </div>
           <div className="gif-grid">
             {/* We use index as the key instead, also, the src is now item.gifLink */}
             {gifList.map((item, index) => (
@@ -226,9 +231,11 @@ const App = () => {
 
       console.log("Got the account", account);
       setGifList(account.gifList);
+      setTotalGifs(parseInt(account.totalGifs.toString()));
     } catch (error) {
       console.log("Error in getGifs: ", error);
       setGifList(null);
+      setTotalGifs(0);
     }
   };
   /*

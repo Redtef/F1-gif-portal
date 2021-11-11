@@ -51,7 +51,30 @@
   font-weight: bold;
   color: white;
 }
+.total-gifs-container {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
 
+.total-gifs-item {
+  font-size: 25px;
+  height: 50px;
+  width: 300px;
+  color: white;
+  border-radius: 10px;
+  align-items: center;
+  background: -webkit-linear-gradient(left, #004c6c, #008cd1);
+  background-size: 200% 200%;
+  animation: gradient-animation 4s ease infinite;
+}
+
+.total-gifs-number {
+  margin-left: 10px;
+  font-size: 35px;
+}
 .connect-wallet-button {
   background: -webkit-linear-gradient(left, #60c657, #35aee2);
   background-size: 200% 200%;
